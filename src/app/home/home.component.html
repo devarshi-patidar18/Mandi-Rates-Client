@@ -1,20 +1,110 @@
-
-<div class="header-container">
-    <h3>Mandi Rates</h3>
+<div class="grid m-4">
+    <div class=" col ">
+        <div class="text-center p-3 border-round-sm bg-white font-bold border-0">Mandi Rates Filter Features</div>
+    </div>
 </div>
 
-<div class="login-container">
-    <h2>Login</h2>
-    <h6 style="color: red;">{{responseMessage}}</h6>
-    <form>
-        <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
-        </div>
-        <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <button type="submit" (click)="login(username,password)" >Login</button>
-    </form>
+<div class="grid ml-2">
+    @if (componentClicked!='') {
+    <div class="col-2 filter">
+        <div class=" cursor-pointer text-center border-round-sm bg-secondary font-bold" (click)="componentClicked=''">
+            Close</div>
+    </div>
+    }
 </div>
+
+<div class="grid justify-content-center">
+
+    <!-- Row 3 Starts -->
+    @if (componentClicked=='1' || componentClicked=='2' || componentClicked=='') {
+    <div class="col-6 ml-4 mr-4" [class.col-8]="componentClicked=='1' || componentClicked=='2'">
+        <!-- Filter accross india button starts -->
+        @if ((componentClicked=='1') || componentClicked=='') {
+        <div class="mb-4 filter on-hover-shadow ">
+            <div class=" cursor-pointer text-center p-3 border-round-sm bg-primary font-bold"
+                (click)="componentClicked='1'">Filter Accross India</div>
+        </div>
+        }
+        <!-- Filter accross india button Ends -->
+
+        <!-- My Area Markets button starts -->
+        @if (componentClicked=='2' || componentClicked=='') {
+        <div class="mb-4 filter on-hover-shadow">
+            <div class="cursor-pointer text-center p-3 border-round-sm bg-primary font-bold "
+                (click)="componentClicked='2'">My Area Markets</div>
+        </div>
+        }
+        <!-- My Area Markets button Ends -->
+
+    </div>
+    }
+    <!-- Row 3 Ends -->
+
+
+    <!-- Row 4 Starts -->
+    @if (componentClicked=='3' || componentClicked=='4' || componentClicked=='') {
+    <div class="col-6 ml-4 mr-4" [class.col-8]="componentClicked=='3' || componentClicked=='4'">
+
+        <!-- Graphes Starts -->
+        @if (componentClicked=='3' || componentClicked=='') {
+        <div class="mb-4 filter on-hover-shadow">
+            <div class="cursor-pointer text-center p-3 border-round-sm bg-primary font-bold "
+                (click)="componentClicked='3'">Graphes</div>
+        </div>
+        }
+        <!-- Graphes Ends -->
+
+        <!-- Research Studies Starts -->
+        @if (componentClicked=='4' || componentClicked=='') {
+        <div class="mb-4 filter on-hover-shadow">
+            <div class="cursor-pointer text-center p-3 border-round-sm bg-primary font-bold "
+                (click)="componentClicked='4'">Research Studies</div>
+        </div>
+        }
+        <!-- Research Studies Ends -->
+
+    </div>
+    }
+    <!-- Row 4 Ends -->
+
+
+    <!-- Row 5 Starts -->
+    @if (componentClicked=='5' || componentClicked=='') {
+    <div class="col-6 ml-4 mr-4 " [class.col-8]="componentClicked=='5'">
+
+        <!-- About Starts -->
+
+        @if (componentClicked=='5') {
+        <div class="">
+            <!-- <div class="cursor-pointer text-center p-3 border-round-sm bg-primary font-bold "
+                (click)="componentClicked='5'">About</div> -->
+
+            <app-about></app-about>
+        </div>
+        }
+        @else {
+        <div class=" filter on-hover-shadow">
+            <div class="cursor-pointer text-center p-3 border-round-sm bg-primary font-bold "
+                (click)="componentClicked='5'">About</div>
+
+        </div>
+        }
+        <!-- About Ends -->
+
+    </div>
+    }
+    <!-- Row 5 Ends -->
+</div>
+
+
+<!-- Output Page Result Starts -->
+<div class="grid justify-content-center">
+    <div class="col">
+        @if (componentClicked=='4') {<app-research-studies></app-research-studies>}
+        @if (componentClicked=='1') {<app-mandi-rates></app-mandi-rates>}
+        @if(componentClicked=='2'){<app-my-area-markets></app-my-area-markets>}
+        @if (componentClicked=='3') {<app-graph></app-graph>}
+
+    </div>
+</div>
+<!-- Output Page Result Endss -->

@@ -55,4 +55,11 @@ export class MandiService {
     return this.httpClient.post(this.url + "market/fetchMarketListForDistrict", obj);
   }
 
+  /**
+   * Research Studies List
+   */
+  fetchResearchStudiesList(){
+    return this.httpClient.get<any[]>(this.url + "research-studies/list");
+  }
+
 }

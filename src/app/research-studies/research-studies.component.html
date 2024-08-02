@@ -1,0 +1,30 @@
+<div class="grid justify-content-center m-4">
+    <!-- accordion-body -->
+    <table class="col-8 styled-table">
+        <thead>
+            <tr>
+                
+                <th scope="">Research Titles</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+
+            @for (item of researchStudiesList; track $index) {
+            @if (item.marketName!="") {
+            <tr>
+                
+                <td class="cursor-pointer">
+                    <a href="{{item.researchStudyLink}}">{{item.researchStudyTitle}}</a>
+                </td>
+                <!-- <td>{{item.researchStudyLink}}</td> -->
+                
+
+            </tr>
+            }
+            }
+
+    </table>
+
+</div>

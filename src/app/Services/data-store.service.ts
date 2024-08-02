@@ -8,6 +8,7 @@ export class DataStoreService {
   constructor() { }
 
   latestMandiBhaavList: any = [];
+  researchStudiesList:any=[];
 
   /**
    * Common method to filter given array(using field = name) according to given event and returns the filtered array

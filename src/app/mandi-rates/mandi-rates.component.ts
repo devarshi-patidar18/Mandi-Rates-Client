@@ -6,12 +6,13 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
 @Component({
   selector: 'app-mandi-rates',
   standalone: true,
-  imports: [CalendarModule,AutoCompleteModule,FormsModule,CommonModule],
+  imports: [CalendarModule,AutoCompleteModule,FormsModule,CommonModule,RouterLink,RouterLinkActive],
   templateUrl: './mandi-rates.component.html',
   providers:[DatePipe,BrowserModule],
   styleUrl: './mandi-rates.component.css'
@@ -38,7 +39,7 @@ export class MandiRatesComponent {
 
   }
 
-  constructor(private mandiService: MandiService, public dataStore: DataStoreService, private datePipe: DatePipe) { }
+  constructor(private mandiService: MandiService, public dataStore: DataStoreService, public datePipe: DatePipe) { }
 
   mandiList: any = [
     
@@ -137,7 +138,7 @@ export class MandiRatesComponent {
    */
   searchMandiBhaavList() {
 
-    this.showSearchLoader = true;
+    // this.showSearchLoader = true;
 
     let mandiBhaavDto = {};
     mandiBhaavDto = {
